@@ -14,4 +14,7 @@ public interface RestaurantDAO {
     Restaurant getRestaurantById(int restaurantId);
 
     List<Restaurant> getAllRestaurants();
+    
+    
+    
 }

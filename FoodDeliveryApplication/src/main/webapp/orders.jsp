@@ -23,9 +23,10 @@
 }
 
 body{
-    background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-    color:#fff;
-    min-height:100vh;
+height:100vh;
+background: url('<%=request.getContextPath()%>/images/allImages/burger.png') no-repeat center center/cover;
+position:relative;
+color:white;
 }
 
 /* CONTAINER */

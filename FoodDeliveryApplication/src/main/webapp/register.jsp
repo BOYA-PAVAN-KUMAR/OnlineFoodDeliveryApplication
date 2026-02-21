@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,158 +6,273 @@
 <title>FoodieHub | Register</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
 <style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
 
-    body {
-        font-family: 'Poppins', sans-serif;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: linear-gradient(135deg, #141e30, #243b55);
-        overflow: hidden;
-    }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
 
-    .register-container {
-        width: 380px;
-        padding: 40px;
-        border-radius: 20px;
-        background: rgba(255, 255, 255, 0.08);
-        backdrop-filter: blur(15px);
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-        color: white;
-        animation: fadeIn 0.8s ease-in-out;
-    }
+body{
+height:100vh;
+background: url('<%=request.getContextPath()%>/images/allImages/burger.png') no-repeat center center/cover;
+position:relative;
+color:white;
+}
 
-    .register-container h2 {
-        text-align: center;
-        margin-bottom: 25px;
-        font-weight: 600;
-        color: #ff7043;
-    }
+/* DARK OVERLAY */
+body::before{
+content:"";
+position:absolute;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.65);
+z-index:0;
+}
 
-    .input-group {
-        margin-bottom: 20px;
-        position: relative;
-    }
+/* NAVBAR */
+.navbar{
+position:absolute;
+top:20px;
+left:50%;
+transform:translateX(-50%);
+width:90%;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(12px);
+border-radius:20px;
+padding:18px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:2;
+}
 
-    .input-group input {
-        width: 100%;
-        padding: 12px 15px;
-        border-radius: 10px;
-        border: 1px solid rgba(255,255,255,0.2);
-        background: rgba(255,255,255,0.1);
-        color: white;
-        font-size: 14px;
-        transition: 0.3s;
-    }
+.logo{
+font-size:24px;
+font-weight:700;
+color:#ff7a00;
+}
 
-    .input-group input:focus {
-        outline: none;
-        border-color: #ff7043;
-        box-shadow: 0 0 10px rgba(255,112,67,0.6);
-    }
+.logo span{
+color:white;
+}
 
-    .input-group input::placeholder {
-        color: #ccc;
-    }
+.nav-links{
+display:flex;
+gap:40px;
+}
 
-    .register-btn {
-        width: 100%;
-        padding: 12px;
-        border-radius: 12px;
-        border: none;
-        background: #ff7043;
-        color: white;
-        font-size: 15px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: 0.3s;
-    }
+.nav-links a{
+text-decoration:none;
+color:#ddd;
+font-weight:500;
+position:relative;
+}
 
-    .register-btn:hover {
-        background: #ff5722;
-        transform: translateY(-3px);
-        box-shadow: 0 8px 25px rgba(255,87,34,0.5);
-    }
+.nav-links a.active{
+color:#ff7a00;
+}
 
-    .login-link {
-        text-align: center;
-        margin-top: 18px;
-        font-size: 14px;
-    }
+.nav-links a.active::after{
+content:"";
+position:absolute;
+bottom:-6px;
+left:0;
+width:100%;
+height:3px;
+background:#ff7a00;
+border-radius:5px;
+}
 
-    .login-link a {
-        color: #ffab91;
-        text-decoration: none;
-        font-weight: 500;
-        transition: 0.3s;
-    }
+/* REGISTER SECTION */
 
-    .login-link a:hover {
-        color: #ffffff;
-    }
+.container{
+position:relative;
+z-index:2;
+height:100%;
+display:flex;
+justify-content:center;
+align-items:center;
+}
 
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
+.register-box{
+width:460px;
+padding:40px;
+background:rgba(255,255,255,0.08);
+border-radius:20px;
+backdrop-filter:blur(20px);
+box-shadow:0 15px 40px rgba(0,0,0,0.6);
+animation:fadeIn 0.8s ease-in-out;
+}
 
-    @media(max-width: 480px) {
-        .register-container {
-            width: 90%;
-            padding: 30px;
-        }
-    }
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(20px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+.register-box h2{
+margin-bottom:30px;
+font-size:26px;
+font-weight:600;
+}
+
+.register-box h2 span{
+color:#ff7a00;
+}
+
+/* INPUT */
+
+.input-group{
+margin-bottom:18px;
+position:relative;
+}
+
+.input-group i{
+position:absolute;
+top:50%;
+left:15px;
+transform:translateY(-50%);
+color:#aaa;
+}
+
+.input-group input{
+width:100%;
+padding:12px 12px 12px 45px;
+border-radius:12px;
+border:none;
+outline:none;
+background:rgba(255,255,255,0.12);
+color:white;
+}
+
+.input-group input:focus{
+background:rgba(255,255,255,0.2);
+box-shadow:0 0 8px #ff7a00;
+}
+
+/* BUTTON */
+
+.btn-register{
+width:100%;
+padding:12px;
+border:none;
+border-radius:12px;
+background:#ff7a00;
+color:white;
+font-weight:600;
+cursor:pointer;
+transition:0.3s;
+margin-top:10px;
+}
+
+.btn-register:hover{
+background:#ff6200;
+transform:translateY(-2px);
+box-shadow:0 10px 20px rgba(255,122,0,0.4);
+}
+
+/* EXTRA */
+
+.extra{
+margin-top:15px;
+font-size:13px;
+color:#ccc;
+}
+
+.extra a{
+color:#ff7a00;
+text-decoration:none;
+}
+
+.extra a:hover{
+text-decoration:underline;
+}
+
+.login-link{
+margin-top:20px;
+text-align:center;
+font-size:14px;
+}
+
+.login-link a{
+color:#ff7a00;
+font-weight:500;
+text-decoration:none;
+}
+
+.login-link a:hover{
+text-decoration:underline;
+}
+
 </style>
 </head>
 
 <body>
 
-<div class="register-container">
-    <h2>Create Account</h2>
+<!-- NAVBAR -->
+<div class="navbar">
+<div class="logo">🍴 Foodie<span>Hub</span></div>
 
-    <form action="register" method="post">
+<div class="nav-links">
+<a href="home.jsp">Home</a>
+<a href="restaurants.jsp">Restaurants</a>
+<a href="#">My Orders</a>
+<a href="login.jsp" class="active">Login</a>
+</div>
+</div>
 
-        <div class="input-group">
-            <input type="text" name="username" placeholder="Full Name" required>
-        </div>
+<!-- REGISTER BOX -->
+<div class="container">
+<div class="register-box">
 
-        <div class="input-group">
-            <input type="email" name="email" placeholder="Email Address" required>
-        </div>
+<h2><span>Register</span> a New Account</h2>
 
-        <div class="input-group">
-            <input type="text" name="phone" placeholder="Phone Number" required>
-        </div>
+<form action="register" method="post">
 
-        <div class="input-group">
-            <input type="password" name="password" placeholder="Password" required>
-        </div>
+<div class="input-group">
+<i class="fa-solid fa-user"></i>
+<input type="text" name="username" placeholder="Full Name" required>
+</div>
 
-        <div class="input-group">
-            <input type="text" name="address" placeholder="Address" required>
-        </div>
+<div class="input-group">
+<i class="fa-solid fa-envelope"></i>
+<input type="email" name="email" placeholder="Enter your email" required>
+</div>
 
-        <button type="submit" class="register-btn">Register</button>
-    </form>
+<div class="input-group">
+<i class="fa-solid fa-phone"></i>
+<input type="text" name="phone" placeholder="Phone Number" required>
+</div>
 
-    <div class="login-link">
-        Already have an account? 
-        <a href="login.jsp">Login</a>
-    </div>
+<div class="input-group">
+<i class="fa-solid fa-lock"></i>
+<input type="password" name="password" placeholder="Enter your password" required>
+</div>
+
+<div class="input-group">
+<i class="fa-solid fa-location-dot"></i>
+<input type="text" name="address" placeholder="Address" required>
+</div>
+
+<button type="submit" class="btn-register">Register</button>
+
+<div class="extra">
+By registering, you agree to the 
+<a href="#">Terms of Service</a> and 
+<a href="#">Privacy Policy</a>
+</div>
+
+</form>
+
+<div class="login-link">
+Have an account? <a href="login.jsp">Login</a>
+</div>
+
+</div>
 </div>
 
 </body>

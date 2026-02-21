@@ -4,183 +4,246 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>FoodieHub | Menu</title>
+<title>FoodieHub | Explore Menu</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+<style>
 
-        body {
-            margin: 0;
-            padding: 40px 60px;
-            font-family: 'Poppins', sans-serif;
-            background: #0f172a;
-            color: #e5e7eb;
-        }
-
-        h2 {
-            margin-bottom: 30px;
-            font-size: 28px;
-            font-weight: 600;
-            color: #f9fafb;
-        }
-
-        /* GRID */
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 28px;
-        }
-
-        /* CARD */
-        .menu-card {
-            background: #020617;
-            border-radius: 18px;
-            overflow: hidden;
-            box-shadow: 0 12px 40px rgba(0,0,0,0.45);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .menu-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.6);
-        }
-
-        .menu-card img {
-            width: 100%;
-            height: 190px;
-            object-fit: cover;
-        }
-
-        /* BODY */
-        .menu-body {
-            padding: 18px;
-        }
-
-        .menu-body h3 {
-            margin: 0;
-            font-size: 18px;
-            font-weight: 600;
-            color: #f8fafc;
-        }
-
-        .desc {
-            font-size: 13px;
-            color: #9ca3af;
-            margin: 8px 0 14px;
-            line-height: 1.4;
-        }
-        
-        /* BACK BUTTON */
-.back-btn {
-    display: inline-block;
-    margin-bottom: 25px;
-    text-decoration: none;
-    color: #f97316;
-    font-weight: 600;
-    font-size: 14px;
-    transition: 0.3s ease;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
 }
 
-.back-btn:hover {
-    color: #fb923c;
-    transform: translateX(-5px);
+body{
+background:#020617;
+padding:40px 70px;
+color:#fff;
 }
-        
 
-        /* FOOTER */
-        .menu-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+/* NAVBAR */
 
-        .price {
-            font-size: 17px;
-            font-weight: 600;
-            color: #22c55e;
-        }
+.navbar{
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:#0f172a;
+padding:18px 40px;
+border-radius:18px;
+box-shadow:0 0 20px rgba(0,0,0,0.6);
+margin-bottom:35px;
+}
 
-        .add-btn {
-            background: linear-gradient(135deg, #f97316, #fb923c);
-            border: none;
-            color: #020617;
-            padding: 8px 18px;
-            border-radius: 999px;
-            font-size: 13px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
+.logo{
+font-size:26px;
+font-weight:700;
+color:#f97316;
+}
 
-        .add-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 18px rgba(249,115,22,0.5);
-        }
+.nav-links{
+display:flex;
+gap:40px;
+font-size:15px;
+}
 
-        .add-btn:active {
-            transform: scale(0.95);
-        }
+.nav-links a{
+text-decoration:none;
+color:#e5e7eb;
+}
 
-        /* EMPTY STATE */
-        .empty {
-            color: #9ca3af;
-            font-size: 15px;
-        }
+.nav-links a:hover{
+color:#f97316;
+}
 
-        /* MOBILE */
-        @media (max-width: 768px) {
-            body {
-                padding: 25px;
-            }
-        }
-    </style>
+.icons{
+display:flex;
+gap:20px;
+font-size:18px;
+}
+
+/* BACK BUTTON */
+
+.back-btn{
+text-decoration:none;
+background:#0f172a;
+padding:8px 16px;
+border-radius:8px;
+color:#f97316;
+font-weight:600;
+}
+
+.back-btn:hover{
+background:#1e293b;
+}
+
+/* TITLE */
+
+.heading{
+margin:30px 0;
+font-size:30px;
+font-weight:600;
+}
+
+/* MENU CARD LAYOUT */
+
+.menu-container{
+display:flex;
+flex-direction:column;
+gap:28px;
+}
+
+/* CARD */
+
+.menu-card{
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:#0f172a;
+border-radius:16px;
+padding:16px;
+box-shadow:0 8px 30px rgba(0,0,0,0.5);
+transition:0.3s;
+}
+
+.menu-card:hover{
+transform:scale(1.02);
+}
+
+.menu-left{
+display:flex;
+align-items:center;
+gap:18px;
+}
+
+.menu-left img{
+width:160px;
+height:100px;
+border-radius:12px;
+object-fit:cover;
+}
+
+.menu-details h3{
+font-size:18px;
+margin-bottom:6px;
+}
+
+.menu-details p{
+font-size:13px;
+color:#9ca3af;
+margin-bottom:10px;
+}
+
+.price{
+color:#22c55e;
+font-weight:600;
+}
+
+/* ADD BUTTON */
+
+.add-btn{
+background:linear-gradient(135deg,#f97316,#fb923c);
+border:none;
+padding:8px 20px;
+border-radius:8px;
+font-weight:600;
+cursor:pointer;
+color:#000;
+}
+
+.add-btn:hover{
+transform:scale(1.05);
+}
+
+/* PAGINATION */
+
+.pagination{
+margin-top:30px;
+display:flex;
+justify-content:center;
+gap:10px;
+}
+
+.page{
+background:#0f172a;
+padding:6px 12px;
+border-radius:6px;
+}
+
+.active{
+background:#f97316;
+}
+
+</style>
 </head>
 
 <body>
 
-<a href="${pageContext.request.contextPath}/restaurants" class="back-btn">
-    ← Back
-</a>
+<!-- NAVBAR -->
 
+<div class="navbar">
+<div class="logo">🍴 FoodieHub</div>
 
-<h2>🍽️ Explore Menu</h2>
+<div class="nav-links">
+<a href="index.jsp">Home</a>
+<a href="${pageContext.request.contextPath}/restaurants">Restaurants</a>
+<a href="${pageContext.request.contextPath}/orders">My Orders</a>
+<a href="profile.jsp">Profile</a>
+</div>
+
+<div class="icons">
+🛒 ☰
+</div>
+</div>
+
+<a href="${pageContext.request.contextPath}/restaurants" class="back-btn">← Back</a>
+
+<div class="heading">Explore Menu</div>
 
 <c:if test="${empty menuList}">
-    <p class="empty">No menu items available.</p>
+<p>No menu items available</p>
 </c:if>
 
-<div class="menu-grid">
+<div class="menu-container">
+
 <c:forEach var="m" items="${menuList}">
-    <div class="menu-card">
 
-        <img src="${pageContext.request.contextPath}/${m.imageURL}" alt="${m.menuName}">
+<div class="menu-card">
 
-        <div class="menu-body">
-            <h3>${m.menuName}</h3>
-            <div class="desc">${m.description}</div>
+<div class="menu-left">
 
-            <div class="menu-footer">
-                <div class="price">₹ ${m.price}</div>
+<img src="${pageContext.request.contextPath}/${m.imageURL}">
 
-                <!-- ADD TO CART -->
-                <form action="${pageContext.request.contextPath}/CartItemServlet" method="post">
-                		 <input type="hidden" name="action" value="add">
-                    <input type="hidden" name="menuId" value="${m.menuId}">
-                    <input type="hidden" name="itemName" value="${m.menuName}">
-                    <input type="hidden" name="price" value="${m.price}">
-                    <input type="hidden" name="quantity" value="1">
+<div class="menu-details">
+<h3>${m.menuName}</h3>
+<p>${m.description}</p>
+<div class="price">₹ ${m.price}</div>
+</div>
 
-                    <button type="submit" class="add-btn">Add</button>
-                </form>
-            </div>
-        </div>
+</div>
 
-    </div>
+<form action="${pageContext.request.contextPath}/CartItemServlet" method="post">
+<input type="hidden" name="action" value="add">
+<input type="hidden" name="menuId" value="${m.menuId}">
+<input type="hidden" name="itemName" value="${m.menuName}">
+<input type="hidden" name="price" value="${m.price}">
+<input type="hidden" name="quantity" value="1">
+
+<button class="add-btn">Add</button>
+</form>
+
+</div>
+
 </c:forEach>
+
+</div>
+
+<div class="pagination">
+<div class="page active">1</div>
+<div class="page">2</div>
+<div class="page">❯</div>
 </div>
 
 </body>
